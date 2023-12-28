@@ -100,7 +100,7 @@ class EBTextClassifier(BaseEstimator, RegressorMixin):
         return X_transformed
 
   
-    def evaluate_metrics(self, X, y_true):
+    def score(self, X, y_true):
         """
         Evaluate multiple metrics.
     
@@ -111,16 +111,16 @@ class EBTextClassifier(BaseEstimator, RegressorMixin):
             The true labels for X.
     
         Returns:
-        metrics : dict
+        score : dict
             A dictionary where the key is the metric name and the value is the metric result.
         """
         y_pred = self.predict(X)
-        metrics = {
+        score = {
             'r2_score': r2_score(y_true, y_pred),
             'mean_squared_error': mean_squared_error(y_true, y_pred),
             'mean_absolute_percentage_error': mean_absolute_percentage_error(y_true, y_pred)
         }
-        return metrics
+        return score
 
           
     def save_model(self, filename):
@@ -153,7 +153,7 @@ class EBTextClassifier(BaseEstimator, RegressorMixin):
         logging.info(f'Model loaded from {filename}')
         return model
 
-    def visualize_results(self, X, y_true):
+    def visualize(self, X, y_true):
         """
         Visualize the results of the regression.
     
@@ -163,17 +163,13 @@ class EBTextClassifier(BaseEstimator, RegressorMixin):
         y_true : array-like of shape (n_samples,)
             The true labels for X.
         """
-        # Get the predicted values
         y_pred = self.predict(X)
     
-        # Create a scatter plot of the true values versus the predicted values
         plt.scatter(y_true, y_pred, alpha=0.5)
         plt.xlabel('True Values')
         plt.ylabel('Predicted Values')
         plt.title('True vs Predicted Values')
     
-        # Add a line for perfect correlation. This is where we would hope our predictions to fall.
         plt.plot([min(y_true), max(y_true)], [min(y_true), max(y_true)], color='red')
     
-        # Show the plot
-      plt.show()
+        plt.show()
