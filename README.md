@@ -19,7 +19,7 @@ pip install EmotionBasedModel
 ## Usage
 
 ```python
-from EmotionBasedModel import EBTextClassifier, EBTextRegressor, EBTextClustering
+from EmotionBasedModel import EBTextClassifier, EBTextRegressor, EBTextClusterization
 
 # your code here
 ```
