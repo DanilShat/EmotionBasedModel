@@ -55,8 +55,6 @@ class EBTextClassifier(BaseEstimator, ClassifierMixin):
         Parameters:
         X : texts or array-like of shape (n_samples, n_features)
             The input samples.
-        no_transform : bool, default=False
-            If True, the input samples are not transformed before prediction. Useful when the input samples are already transformed.
       
         Returns:
         y : array-like of shape (n_samples,)
