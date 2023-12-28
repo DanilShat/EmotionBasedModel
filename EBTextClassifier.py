@@ -9,7 +9,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 logging.basicConfig(level=logging.INFO)
 
 
-class EBClassifier(BaseEstimator, ClassifierMixin):
+class EBTextClassifier(BaseEstimator, ClassifierMixin):
     """
     Emotion Based Classifier.
     This classifier uses a set of models and a final estimator to make predictions.
