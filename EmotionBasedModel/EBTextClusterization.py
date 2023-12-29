@@ -113,10 +113,11 @@ class EBTextClusterization(BaseEstimator, ClusterMixin):
             A dictionary where the key is the metric name and the value is the metric result.
         """
         y_pred = self.predict(X)
+        X_transformed = self.transform(X)
         score = {
-            'silhouette_score': silhouette_score(X, y_pred),
-            'calinski_harabasz_score': calinski_harabasz_score(X, y_pred),
-            'davies_bouldin_score': davies_bouldin_score(X, y_pred)
+            'silhouette_score': silhouette_score(X_transformed, y_pred),
+            'calinski_harabasz_score': calinski_harabasz_score(X_transformed, y_pred),
+            'davies_bouldin_score': davies_bouldin_score(X_transformed, y_pred)
         }
         return score
 
