@@ -150,23 +150,3 @@ class EBTextClusterization(BaseEstimator, ClusterMixin):
         model = load(filename)
         logging.info(f'Model loaded from {filename}')
         return model
-
-    def visualize(self, X):
-        """
-        Visualize the results of the clustering.
-    
-        Parameters:
-        X : array-like of shape (n_samples, n_features)
-            The input samples.
-        """
-        y_pred = self.predict(X)
-    
-        pca = PCA(n_components=2)
-        X_pca = pca.fit_transform(X)
-    
-        plt.scatter(X_pca[:, 0], X_pca[:, 1], c=y_pred, alpha=0.5)
-        plt.xlabel('First Principal Component')
-        plt.ylabel('Second Principal Component')
-        plt.title('Cluster Visualization')
-    
-        plt.show()
