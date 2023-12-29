@@ -271,11 +271,3 @@ Parameters:
 Returns:
   model : EBClassifier object
   The loaded model.
-
-##### visualize(self, X, y_true)
-
-Visualize the results of the clustering.
-    
-Parameters:
-    X : array-like of shape (n_samples, n_features)
-    The input samples.
