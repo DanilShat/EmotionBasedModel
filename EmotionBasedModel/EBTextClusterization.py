@@ -13,7 +13,7 @@ from sklearn.decomposition import PCA
 logging.basicConfig(level=logging.INFO)
 
 
-class EBTextClusterization(BaseEstimator, CLusterMixin):
+class EBTextClusterization(BaseEstimator, ClusterMixin):
     """
     Emotion Based Clusterization.
     This clusterization uses a set of models and a final estimator to make predictions.
